@@ -2,15 +2,19 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Logo from "../logo/logo";
 import Shortcut from "../shortcut/shortcut";
-import { faPen, faX } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { faCaretRight, faPen, faX } from "@fortawesome/free-solid-svg-icons";
+import { useState, useContext } from "react";
 import Tabs from "../tabs/tabs";
+import { AppContext } from "@/context/app.context";
 
 export default function Sidebar() {
+    const {state} = useContext(AppContext)
+    
     const [show,setShow] = useState(false)
+    const menuItems = ['Invoicing','Estimates','Credit Notes','Payments','Expenses','Bills','Banking','Reports','Contacts','Products','Projects','Tasks','Timesheets','Payroll','Accounting','Tax','Settings','Help','My Account','Log Out']
     return (
         <>
-            <div className="w-2/12 h-screen bg-quick-nav">
+            <div className={state.open?"w-2/12 h-screen bg-quick-nav":"w-0 h-screen bg-quick-nav"}>
                 <div className="w-full h-fit flex flex-col justify-center items-center">
                     <Logo />
                     <Shortcut />
@@ -20,6 +24,16 @@ export default function Sidebar() {
                         <p className="text-sm font-lg p-2">MENU</p>
                         <FontAwesomeIcon onClick={() => setShow(true)} className="cursor-pointer hover:bg-black p-2 rounded-lg" icon={faPen} />
                     </div>
+                </div>
+                <div className="overflow-auto h-96">
+                {
+                    menuItems.map((item:string,index:number) => (
+                    <div key={index} className="flex flex-row justify-between px-2 hover:bg-black hover:text-white py-1">
+                    <h1 className="text-sm font-sm p-2 text-quick-nav-item">{item}</h1>
+                    <FontAwesomeIcon className="text-white cursor-pointer p-2 rounded-lg"  icon={faCaretRight} />
+                </div>
+                ))
+                }
                 </div>
                 {show?
                 <>

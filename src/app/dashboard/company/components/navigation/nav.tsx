@@ -6,7 +6,7 @@ export default function Nav() {
         <>
             <div className="relative w-screen h-screen flex flex-row justify-evenly">
                 <Sidebar />
-                <div className="w-full h-16 relative bg-black">
+                <div className="w-full h-16 relative border-black">
                     <Navbutton />
                 </div>
             </div>
