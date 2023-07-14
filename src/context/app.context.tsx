@@ -4,6 +4,8 @@ import React, { Dispatch, createContext, useReducer } from "react";
 
 type StateType = {
   open: boolean;
+  drawerRight: boolean;
+  drawerTop: boolean;
 };
 
 type ActionType = {
@@ -12,6 +14,8 @@ type ActionType = {
 
 const initialState: StateType = {
   open: true,
+  drawerRight: false,
+  drawerTop: false,
 };
 
 const reducer = (state: StateType, action: ActionType) => {
@@ -20,6 +24,14 @@ const reducer = (state: StateType, action: ActionType) => {
       return { ...state, open: true };
     case "CLOSE":
       return { ...state, open: false };
+    case "OPEN_DRAWER_RIGHT":
+      return { ...state, drawerRight: true };
+    case "CLOSE_DRAWER_RIGHT":
+      return { ...state, drawerRight: false };
+    case "OPEN_DRAWER_TOP":
+      return { ...state, drawerTop: true };
+    case "CLOSE_DRAWER_TOP":
+      return { ...state, drawerTop: false };
     default:
       return state;
   }

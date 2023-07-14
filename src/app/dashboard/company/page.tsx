@@ -1,5 +1,5 @@
 'use client'
-import React, {useState,Fragment} from 'react'
+import React, {useState,Fragment, useContext} from 'react'
 import Main from "./components/main/main";
 import Nav from "./components/navigation/nav";
 
@@ -10,26 +10,39 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { AppContext } from '@/context/app.context';
 
 export default function Company() {
-  const [openRight, setOpenRight] = useState(false);
- 
-  const openDrawerRight = () => setOpenRight(true);
-  const closeDrawerRight = () => setOpenRight(false);
+  const {state, dispatch} = useContext(AppContext)
+  
+  
+  const closeDrawerRight = () => {
+    dispatch({type:'CLOSE_DRAWER_RIGHT'})
+  };
 
+  const closeDrawerTop = () => {
+    dispatch({type:'CLOSE_DRAWER_TOP'})
+  };
+  
   return (
     <>
      <Nav />
      <Main />
      {/* this should dispatch an action */}
-     <div className="flex flex-wrap gap-4">
-        <Button onClick={openDrawerRight}>Open Drawer Right</Button>
-      </div>
     <Fragment>
-      {/* this should render accordingly */}
+      <div className={
+        state.drawerTop ?
+        'w-screen h-screen absolute top-0 left-0 z-50 bg-white transition-all duration-200 ease-out translate-y-[0%]' :
+        'w-screen h-screen absolute top-0 left-0 z-50 bg-white transition-all duration-200 ease-in translate-y-[-100%]'
+      }>
+        <IconButton variant="text" color="blue-gray" onClick={closeDrawerTop}>
+            <XMarkIcon strokeWidth={2} className="h-5 w-5" />
+          </IconButton>
+          
+      </div>
       <Drawer
         placement="right"
-        open={openRight}
+        open={state.drawerRight}
         onClose={closeDrawerRight}
         className="p-4"
       >

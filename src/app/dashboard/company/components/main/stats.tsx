@@ -36,7 +36,7 @@ function Stats() {
                 hover:shadow-[0px_5px_0px_0px_rgb(69,26,3)] shadow-[0px_0px_0px_0px_rgba(109,40,217)]
                 "></div>}
 
-                {index===2 && <div className="relative rounded-t-sm mt-4 hover:scale-y-150 rounded-b-md w-full h-6 bg-stone-500 transition-all duration-100 ease-out 
+                {index===2 && <div className="relative rounded-t-sm mt-4 hover:scale-y-150 rounded-b-md w-full h-6 bg-[#a099ab] transition-all duration-100 ease-out 
                 hover:shadow-[0px_5px_0px_0px_rgb(28,25,23)] shadow-[0px_0px_0px_0px_rgba(109,40,217)]
                 "></div>}
 

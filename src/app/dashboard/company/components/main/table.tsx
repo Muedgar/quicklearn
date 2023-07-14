@@ -1,6 +1,12 @@
-import React from 'react'
+'use client'
+import { AppContext } from '@/context/app.context';
+import React, { useContext } from 'react'
 
 function Table() {
+    const {dispatch} = useContext(AppContext)
+    const openDrawerRight = () => {
+    dispatch({type:'OPEN_DRAWER_RIGHT'})
+  };
   return (
     
 
@@ -15,19 +21,28 @@ function Table() {
                     </div>
                 </th>
                 <th scope="col" className="px-6 py-3">
-                    Product name
+                    DATE
                 </th>
                 <th scope="col" className="px-6 py-3">
-                    Color
+                    TYPE
                 </th>
                 <th scope="col" className="px-6 py-3">
-                    Category
+                    NO.
                 </th>
                 <th scope="col" className="px-6 py-3">
-                    Price
+                    CUSTOMER
                 </th>
                 <th scope="col" className="px-6 py-3">
-                    Action
+                    MEMO
+                </th>
+                <th scope="col" className="px-6 py-3">
+                    AMOUNT
+                </th>
+                <th scope="col" className="px-6 py-3">
+                    STATUS
+                </th>
+                <th scope="col" className="px-6 py-3">
+                    ACTION
                 </th>
             </tr>
         </thead>
@@ -40,65 +55,29 @@ function Table() {
                     </div>
                 </td>
                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple iMac
+                    5/18/23
                 </th>
                 <td className="px-6 py-4">
-                    Silver
+                    Sales receipt
                 </td>
                 <td className="px-6 py-4">
-                    PC
+                    1002
                 </td>
                 <td className="px-6 py-4">
-                    $2999
+                    Mutangana Edgar
                 </td>
                 <td className="px-6 py-4">
-                    <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td className="w-4 p-4">
-                    <div className="flex items-center">
-                        <input id="checkbox-table-search-3" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
-                        <label htmlFor="checkbox-table-search-3" className="sr-only">checkbox</label>
-                    </div>
-                </td>
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple AirPods
-                </th>
-                <td className="px-6 py-4">
-                    White
+                    
                 </td>
                 <td className="px-6 py-4">
-                    Accessories
+                    RF 1,000
                 </td>
                 <td className="px-6 py-4">
-                    $399
+                    Paid
                 </td>
-                <td className="px-6 py-4">
-                    <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td className="w-4 p-4">
-                    <div className="flex items-center">
-                        <input id="checkbox-table-search-3" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
-                        <label htmlFor="checkbox-table-search-3" className="sr-only">checkbox</label>
-                    </div>
-                </td>
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    iPad Pro
-                </th>
-                <td className="px-6 py-4">
-                    Gold
-                </td>
-                <td className="px-6 py-4">
-                    Tablet
-                </td>
-                <td className="px-6 py-4">
-                    $699
-                </td>
-                <td className="px-6 py-4">
-                    <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                <td className="px-6 py-4 flex justify-between">
+                    <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline" onClick={openDrawerRight}>View</a>
+                    <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline" onClick={openDrawerRight}>Edit</a>
                 </td>
             </tr>
         </tbody>
