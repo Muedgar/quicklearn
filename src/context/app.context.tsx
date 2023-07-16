@@ -6,6 +6,7 @@ type StateType = {
   open: boolean;
   drawerRight: boolean;
   drawerTop: boolean;
+  showModal: boolean;
 };
 
 type ActionType = {
@@ -16,6 +17,7 @@ const initialState: StateType = {
   open: true,
   drawerRight: false,
   drawerTop: false,
+  showModal: false
 };
 
 const reducer = (state: StateType, action: ActionType) => {
@@ -32,6 +34,10 @@ const reducer = (state: StateType, action: ActionType) => {
       return { ...state, drawerTop: true };
     case "CLOSE_DRAWER_TOP":
       return { ...state, drawerTop: false };
+    case "OPEN_MODAL":
+      return { ...state, showModal: true };
+    case "CLOSE_MODAL":
+      return { ...state, showModal: false };
     default:
       return state;
   }
