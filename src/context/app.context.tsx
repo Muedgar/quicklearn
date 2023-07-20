@@ -7,17 +7,20 @@ type StateType = {
   drawerRight: boolean;
   drawerTop: boolean;
   showModal: boolean;
+  stepKey: number;
 };
 
 type ActionType = {
   type: string;
 };
 
+
 const initialState: StateType = {
   open: true,
   drawerRight: false,
   drawerTop: false,
-  showModal: false
+  showModal: false,
+  stepKey: 0
 };
 
 const reducer = (state: StateType, action: ActionType) => {
@@ -38,6 +41,12 @@ const reducer = (state: StateType, action: ActionType) => {
       return { ...state, showModal: true };
     case "CLOSE_MODAL":
       return { ...state, showModal: false };
+    case "NEXT_STEP_KEY":
+      return { ...state, stepKey: state.stepKey + 1};
+    case "PREV_STEP_KEY":
+      return { ...state, stepKey: state.stepKey - 1};
+    case "RESET_STEP_KEY":
+      return { ...state, stepKey: 0 };
     default:
       return state;
   }

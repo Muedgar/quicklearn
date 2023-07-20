@@ -10,6 +10,11 @@ import { faMapMarked } from '@fortawesome/free-solid-svg-icons';
 
 function Starttour() {
     const {state, dispatch} = useContext(AppContext)
+
+    const handleTour = () => {
+      dispatch({type:'NEXT_STEP_KEY'})
+      dispatch({type:'CLOSE_MODAL'})
+    }
   return (
     <div>
    
@@ -36,7 +41,7 @@ function Starttour() {
                   <p className="my-4 text-slate-500 text-sm leading-relaxed">
                     Check out these resources to learn how
                   </p>
-                  <div className='w-1/2 py-5 m-auto cursor-pointer flex-col justify-center items-center shadow-[0_3px_10px_rgb(0,0,0,0.2)] transition-all duration-200 ease-in hover:shadow-[0_2px_10px_rgb(0,0,0,0.1)]'>
+                  <div onClick={handleTour} className='w-1/2 py-5 m-auto cursor-pointer flex-col justify-center items-center shadow-[0_3px_10px_rgb(0,0,0,0.2)] transition-all duration-200 ease-in hover:shadow-[0_2px_10px_rgb(0,0,0,0.1)]'>
                     <FontAwesomeIcon className='text-9xl mx-[30%]' icon={faMapMarked} />
                     <p className='w-full items-center flex justify-center my-3 text-quick-nav-shortcut-header text-lg font-medium'>Take a guided tour</p>
                     <p className='w-full items-center flex justify-center text-md text-[#b5b1b1]'>Step-by-step tips</p>
