@@ -1,9 +1,10 @@
-import Nav from './landing/nav'
+import React from 'react'
+import LandingPage from './landing/page'
 
 export default function Home() {
   return (
     <>
-      <Nav />
+      <LandingPage />
     </>
   )
 }
