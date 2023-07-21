@@ -11,7 +11,7 @@ function Hero() {
                 Smart, simple online accounting software for small business
             </p>
             <p className='text-white text-lg w-1/2 ml-4 p-4 font-medium break-words h-fit'>Track expenses, customise invoices, run reports and even more all from one place.</p>
-            <button className=''>Get Started Now.</button>
+            <button className='ml-7 mt-6 p-5 border-2 text-lg rounded-md mr-3 border-green-800 text-green-800 font-medium transition-all ease-in duration-300 hover:bg-green-800 hover:text-white'>Get Started.</button>
         </div>
     </div>
   )
