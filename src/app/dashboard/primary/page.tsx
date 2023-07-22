@@ -13,6 +13,8 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { AppContext } from '@/context/app.context';
 import Starttour from './components/starttour/starttour';
 import Customerinfo from './components/customerinfo/customerinfo';
+import Save from './components/customerinfo/save';
+
 
 export default function Primary() {
   const {state, dispatch} = useContext(AppContext)
@@ -39,10 +41,10 @@ export default function Primary() {
         <div className='relative w-[100%] pb-2 shadow-md flex justify-between'>
           <h1 className='text-quick-nav-shortcut-ul-li text-3xl font-bold ml-6 mb-4 mt-3'>Add Company User</h1>
           <div className='w-2/12 flex justify-evenly'>
-            <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline h-fit mt-2 hover:bg-blue-gray-100 px-3 py-3" onClick={() => {
+            {/* <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline h-fit mt-2 hover:bg-blue-gray-100 px-3 py-3" onClick={() => {
               dispatch({type:'OPEN_MODAL'})
               console.log(state.showModal)
-            }}>Take a tour</a>
+            }}>Take a tour</a> */}
                     
             <IconButton className='mt-3' variant="text" color="blue-gray" onClick={closeDrawerTop}>
               <XMarkIcon strokeWidth={2} className="h-5 w-5" />
@@ -57,6 +59,8 @@ export default function Primary() {
         {/* row 2 -> billing info */}
         {/* row 3 -> table */}
         {/* column 1 -> message */}
+        {/* save */}
+        <Save />
       </div>
       <Drawer
         placement="right"
