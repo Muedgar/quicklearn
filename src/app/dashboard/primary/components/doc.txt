@@ -1,0 +1,1 @@
+this component will house other apps to perform the actual functions.

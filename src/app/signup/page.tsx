@@ -1,13 +1,14 @@
 'use client'
 import Link from 'next/link'
 import React from 'react'
+import Navbar from './components/nav/navbar'
+import Signform from './components/signform/signform'
 
 export default function SignUpPage() {
   return (
     <>
-      <Link href='/landing'>
-        <img src='./quicklearn.png' width={200} height={45} />
-      </Link>
+      <Navbar />
+      <Signform />
     </>
   )
 }

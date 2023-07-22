@@ -10,11 +10,14 @@ function Signform() {
         <div className='w-full h-fit flex justify-center items-center mt-[20px]'>
             <p className='text-[24px] font-medium mb-[17px] text-[#393a3d]'>Sign in</p>
         </div>
-        <div className='w-full h-fit flex justify-center items-center'>
-            <button className='w-fit p-2 h-[50px] border-2 rounded-md border-[#3b5998] text-[#393a3d] transition-all ease-in duration-100 hover:bg-[#3b5998] hover:text-black'>Copy Demo Credentials</button>
+        <div className='w-full h-[70px] overflow-auto flex-col justify-center items-center'>
+            <button className='w-fit p-1 ml-5 mt-2 h-[50px] border-2 rounded-md border-[#3b5998] text-[#393a3d] transition-all ease-in duration-100 hover:bg-[#3b5998] hover:text-black'>Copy Admin User Credentials</button>
+            <button className='w-fit p-1 ml-5 mt-2 h-[50px] border-2 rounded-md border-[#3b5998] text-[#393a3d] transition-all ease-in duration-100 hover:bg-[#3b5998] hover:text-black'>Copy Company User Credentials</button>
+            <button className='w-fit p-1 ml-5 mt-2 h-[50px] border-2 rounded-md border-[#3b5998] text-[#393a3d] transition-all ease-in duration-100 hover:bg-[#3b5998] hover:text-black'>Copy Standard User Credentials</button>
+            <button className='w-fit p-1 ml-5 mt-2 h-[50px] border-2 rounded-md border-[#3b5998] text-[#393a3d] transition-all ease-in duration-100 hover:bg-[#3b5998] hover:text-black'>Copy Custom User Credentials</button>
         </div>
 
-        <div className='w-full h-fit flex-col justify-center items-center mt-[20px]'>
+        <div className='w-full h-fit flex-col justify-center items-center mt-[5px]'>
             <input value={email} onChange={e => setEmail(e.target.value)} className='w-[90%] h-[35px] outline-none border rounded-sm ml-4 mt-4 p-2 border-[#a5a6aa] text-[#393a3d] transition-all ease-in duration-100 hover:border-[#1e900e] focus:border-2 hover:text-black' type='text' placeholder='Email' />
             <input value={password} onChange={e => setPassword(e.target.value)} className='w-[90%] h-[35px] outline-none border rounded-sm ml-4 mt-4 p-2 border-[#a5a6aa] text-[#393a3d] transition-all ease-in duration-100 hover:border-[#1e900e] focus:border-2 hover:text-black' type='password' placeholder='Password' />
         </div>
