@@ -11,18 +11,18 @@ export default function Sidebar() {
     const {state} = useContext(AppContext)
     
     const [show,setShow] = useState(false)
-    const menuItems = ['Invoicing','Estimates','Credit Notes','Payments','Expenses','Bills','Banking','Reports','Contacts','Products','Projects','Tasks','Timesheets','Payroll','Accounting','Tax','Settings','Help','My Account','Log Out']
+    const menuItems = ['Log Out']
     return (
         <>
             <div className={state.open?"w-2/12 h-screen bg-quick-nav":"w-0 h-screen bg-quick-nav"}>
                 <div className="w-full h-fit flex flex-col justify-center items-center">
                     <Logo />
-                    <Shortcut />
+                    
                 </div>
                 <div className="w-full h-fit overflow-y-auto">
                     <div className="w-full h-fit flex flex-row justify-between px-2 py-5 text-white">
                         <p className="text-sm font-lg p-2">MENU</p>
-                        <FontAwesomeIcon onClick={() => setShow(true)} className="cursor-pointer hover:bg-black p-2 rounded-lg" icon={faPen} />
+                        {/* <FontAwesomeIcon onClick={() => setShow(true)} className="cursor-pointer hover:bg-black p-2 rounded-lg" icon={faPen} /> */}
                     </div>
                 </div>
                 <div className="overflow-auto h-96">

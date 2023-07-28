@@ -13,26 +13,23 @@ function Search() {
         <div className='flex justify-evenly'>
             <div>
             <select className="focus:shadow-[0_3px_10px_rgb(0,0,0,0.2)] focus:outline-none bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg  block w-fit p-2.5 ml-4 mt-4">
-                <option value="Batch actions">Batch actions</option>
+                <option value="Profit & Loss Statement">Profit & Loss Statement</option>
+                <option value="Balance Sheet">Balance Sheet</option>
             </select>
         </div>
         <div>
             <select className="focus:shadow-[0_3px_10px_rgb(0,0,0,0.2)] focus:outline-none bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg  block w-fit p-2.5 ml-4 mt-4">
-                <option value="All transactions">All transactions</option>
+                <option value="Semester">Semester</option>
+                <option value="Trimester">Trimester</option>
+                <option value="Quarter">Quarter</option>
             </select>
         </div>
         <div>
-            <select className="focus:shadow-[0_3px_10px_rgb(0,0,0,0.2)] focus:outline-none bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg  block w-fit p-2.5 ml-4 mt-4">
-                <option value="Last 12 months">Last 12 months</option>
-            </select>
-        </div>
-        <div>
-            <input type="text" placeholder='Search' className="focus:shadow-[0_3px_10px_rgb(0,0,0,0.2)] focus:outline-none bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg  block w-fit p-2.5 ml-4 mt-4"></input>
+            <input type="button" value="Get Report" placeholder='Search' className="hover:shadow-[0_3px_10px_rgb(0,0,0,0.2)] cursor-pointer bg-green-500 border border-gray-300 text-white mb-6 text-sm rounded-lg  block w-fit p-2.5 ml-4 mt-4"></input>
         </div>
         </div>
         <div>
-             <input onClick={openDrawerTop} type="button" value="New Transaction" placeholder='Search' className="hover:shadow-[0_3px_10px_rgb(0,0,0,0.2)] cursor-pointer bg-green-500 border border-gray-300 text-white mb-6 text-sm rounded-lg  block w-fit p-2.5 ml-4 mt-4"></input>
-        
+             <input type="button" value="Print Report" placeholder='Search' className="hover:shadow-[0_3px_10px_rgb(0,0,0,0.2)] cursor-pointer bg-green-500 border border-gray-300 text-white mb-6 text-sm rounded-lg  block w-fit p-2.5 ml-4 mt-4"></input>
         </div>
     </div>
   )

@@ -1,6 +1,7 @@
 import { AppContextProvider } from '@/context/app.context'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import { ReduxProvider } from '@/redux/provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,9 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AppContextProvider>
-          {children}
-        </AppContextProvider>
+        <ReduxProvider>
+          <AppContextProvider>
+            {children}
+          </AppContextProvider>
+        </ReduxProvider>
       </body>
     </html>
   )
