@@ -6,10 +6,17 @@ import { faCaretRight, faPen, faX } from "@fortawesome/free-solid-svg-icons";
 import { useState, useContext } from "react";
 import Tabs from "../tabs/tabs";
 import { AppContext } from "@/context/app.context";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/redux/store";
+import Link from "next/link";
+import { logOut } from "@/redux/features/signin-slice";
+import { signOut } from "@/redux/features/auth-slice";
+import { setSplashCompany, setSplashSignIn } from "@/redux/features/splash";
 
 export default function Sidebar() {
     const {state} = useContext(AppContext)
-    
+    const dispatch = useDispatch<AppDispatch>()
+
     const [show,setShow] = useState(false)
     const menuItems = ['Invoicing','Estimates','Credit Notes','Payments','Expenses','Bills','Banking','Reports','Contacts','Products','Projects','Tasks','Timesheets','Payroll','Accounting','Tax','Settings','Help','My Account','Log Out']
     return (
@@ -19,6 +26,7 @@ export default function Sidebar() {
                     <Logo />
                     <Shortcut />
                 </div>
+                <Link className="hidden" href={'/signin'} id="companyMoveToSignin"></Link>
                 <div className="w-full h-fit overflow-y-auto">
                     <div className="w-full h-fit flex flex-row justify-between px-2 py-5 text-white">
                         <p className="text-sm font-lg p-2">MENU</p>
@@ -28,7 +36,17 @@ export default function Sidebar() {
                 <div className="overflow-auto h-96">
                 {
                     menuItems.map((item:string,index:number) => (
-                    <div key={index} className="flex flex-row justify-between px-2 hover:bg-black hover:text-white py-1">
+                    <div onClick={() => {
+                        if(item === 'Log Out') {
+                            // show splash screen
+                            dispatch(logOut())
+                            dispatch(signOut())
+                            dispatch(setSplashCompany(true))
+                            dispatch(setSplashSignIn(false))
+                            // navigate to log in screen
+                            document.getElementById("companyMoveToSignin")?.click();
+                        }
+                    }} key={index} className="flex flex-row justify-between px-2 hover:bg-black hover:text-white py-1">
                     <h1 className="text-sm font-sm p-2 text-quick-nav-item">{item}</h1>
                     <FontAwesomeIcon className="text-white cursor-pointer p-2 rounded-lg"  icon={faCaretRight} />
                 </div>

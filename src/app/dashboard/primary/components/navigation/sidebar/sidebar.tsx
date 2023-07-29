@@ -8,7 +8,10 @@ import Tabs from "../tabs/tabs";
 import { AppContext } from "@/context/app.context";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
-import { setSplashDashboard } from "@/redux/features/splash";
+import { setSplashDashboard, setSplashSignIn } from "@/redux/features/splash";
+import Link from "next/link";
+import { logOut } from "@/redux/features/signin-slice";
+import { signOut } from "@/redux/features/auth-slice";
 
 export default function Sidebar() {
     const {state} = useContext(AppContext)
@@ -22,15 +25,19 @@ export default function Sidebar() {
                 <div className="w-full h-fit flex flex-col justify-center items-center">
                     <Logo />
                 </div>
-                
+                <Link className="hidden" href={'/signin'} id="primaryMoveToSignin"></Link>
                 <div className="overflow-auto h-96">
                 {
                     menuItems.map((item:string,index:number) => (
                     <div onClick={() => {
                         if(item === 'Log Out') {
                             // show splash screen
+                            dispatch(logOut())
+                            dispatch(signOut())
                             dispatch(setSplashDashboard(true))
+                            dispatch(setSplashSignIn(false))
                             // navigate to log in screen
+                            document.getElementById("primaryMoveToSignin")?.click();
                         }
                     }} key={index} className="flex flex-row justify-between px-2 hover:bg-black hover:text-white py-1">
                     <h1 className="text-sm font-sm p-2 text-quick-nav-item">{item}</h1>

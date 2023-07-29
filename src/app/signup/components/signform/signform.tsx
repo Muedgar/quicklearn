@@ -1,12 +1,12 @@
 'use strict';
 import Link from 'next/link';
 import React, {useState} from 'react'
-import { logOut, signUp} from '@/redux/features/auth-slice'
+import { signOut, signUp} from '@/redux/features/auth-slice'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '@/redux/store'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { setSplashSignUp } from '@/redux/features/splash';
+import { setSplashDashboard, setSplashSignIn, setSplashSignUp } from '@/redux/features/splash';
 
 function Signform() {
   const [email, setEmail] = useState('')
@@ -19,6 +19,7 @@ function Signform() {
   
   const handleSignUp = () => {
     dispatch(setSplashSignUp(true))
+    dispatch(setSplashDashboard(false))
     dispatch(signUp({isAuth:false,email, password,confirmPassword}))
   }
 
@@ -69,7 +70,10 @@ function Signform() {
         </div>
 
         <div className='w-full h-fit flex justify-center items-center mt-[20px]'>
-            <Link className='text-[#393a3d] font-thin hover:bg-black hover:text-white p-2' href={'/signin'}>Already have an account? Sign in</Link>
+            <Link onClick={() => {
+              dispatch(setSplashSignUp(true))
+              dispatch(setSplashSignIn(false))
+            }} className='text-[#393a3d] font-thin hover:bg-black hover:text-white p-2' href={'/signin'}>Already have an account? Sign in</Link>
         </div>
 
         <div className='w-full h-fit flex justify-center items-center mt-[-5px]'>

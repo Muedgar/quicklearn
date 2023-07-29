@@ -13,9 +13,12 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { AppContext } from '@/context/app.context';
 import Starttour from './components/starttour/starttour';
 import Customerinfo from './components/customerinfo/customerinfo';
+import { useAppSelector } from '@/redux/store';
+import SplashScreen from '@/app/signup/components/splash/splash';
 
 export default function Company() {
   const {state, dispatch} = useContext(AppContext)
+  const company = useAppSelector((value) => value.splashReducer.value.company)
   
   const closeDrawerRight = () => {
     dispatch({type:'CLOSE_DRAWER_RIGHT'})
@@ -79,6 +82,7 @@ export default function Company() {
       </Drawer>
       
     </Fragment>
+    {company && <SplashScreen />}
     </>
   );
 }

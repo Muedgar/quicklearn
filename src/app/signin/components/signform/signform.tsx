@@ -7,7 +7,7 @@ import React, {useState} from 'react'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '@/redux/store'
 import { signIn } from '@/redux/features/signin-slice';
-import { setSplashSignIn } from '@/redux/features/splash';
+import { setSplashCompany, setSplashCustom, setSplashDashboard, setSplashSignIn, setSplashSignUp, setSplashStandard } from '@/redux/features/splash';
 
 
 function Signform() {
@@ -66,6 +66,10 @@ function Signform() {
 
   const handleSigIn = () => {
     dispatch(setSplashSignIn(true))
+    dispatch(setSplashDashboard(false))
+    dispatch(setSplashCompany(false))
+    dispatch(setSplashStandard(false))
+    dispatch(setSplashCustom(false))
     dispatch(signIn({role, email,password}))
   }
   return (
@@ -94,7 +98,10 @@ function Signform() {
         </div>
 
         <div className='w-full h-fit flex justify-center items-center mt-[20px]'>
-            <Link className='text-[#393a3d] font-thin hover:bg-black hover:text-white p-2' href={'/signup'}>Don't have an account? Sign up</Link>
+            <Link onClick={() => {
+              dispatch(setSplashSignIn(true))
+              dispatch(setSplashSignUp(false))
+            }} className='text-[#393a3d] font-thin hover:bg-black hover:text-white p-2' href={'/signup'}>Don't have an account? Sign up</Link>
         </div>
 
         <div className='w-full h-fit flex justify-center items-center mt-[-5px]'>
