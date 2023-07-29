@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux'
 import { AppDispatch } from '@/redux/store'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { setSplashSignUp } from '@/redux/features/splash';
 
 function Signform() {
   const [email, setEmail] = useState('')
@@ -17,6 +18,7 @@ function Signform() {
   const dispatch = useDispatch<AppDispatch>()
   
   const handleSignUp = () => {
+    dispatch(setSplashSignUp(true))
     dispatch(signUp({isAuth:false,email, password,confirmPassword}))
   }
 
@@ -37,7 +39,7 @@ function Signform() {
   return (
     <div className='m-auto w-[300px] h-fit pb-[30px] border border-blue-gray-300'>
         <div className='w-full h-fit flex justify-center items-center mt-[20px]'>
-            <p className='text-[24px] font-medium mb-[17px] text-[#393a3d]'>Sign in</p>
+            <p className='text-[24px] font-medium mb-[17px] text-[#393a3d]'>Sign up</p>
         </div>
         <div className='w-full h-[70px] flex justify-center items-center'>
             <button onClick={handleRandomCredentials} className='w-fit p-1 ml-5 mt-2 h-[50px] border-2 rounded-md border-[#3b5998] text-[#393a3d] transition-all ease-in duration-100 hover:bg-[#3b5998] hover:text-black'>Copy Random Credentials</button>

@@ -1,12 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./features/auth-slice";
-import signinReducer from "./features/signin-slice"
+import signinReducer from "./features/signin-slice";
+import splashReducer from "./features/splash"
 import { TypedUseSelectorHook, useSelector } from "react-redux";
 
 export const store = configureStore({
     reducer: {
         authReducer,
-        signinReducer
+        signinReducer,
+        splashReducer
     }
 })
 

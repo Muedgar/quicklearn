@@ -7,6 +7,7 @@ import React, {useState} from 'react'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '@/redux/store'
 import { signIn } from '@/redux/features/signin-slice';
+import { setSplashSignIn } from '@/redux/features/splash';
 
 
 function Signform() {
@@ -64,6 +65,7 @@ function Signform() {
   }
 
   const handleSigIn = () => {
+    dispatch(setSplashSignIn(true))
     dispatch(signIn({role, email,password}))
   }
   return (

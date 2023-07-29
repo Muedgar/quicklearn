@@ -14,11 +14,13 @@ import { AppContext } from '@/context/app.context';
 import Starttour from './components/starttour/starttour';
 import Customerinfo from './components/customerinfo/customerinfo';
 import Save from './components/customerinfo/save';
+import SplashScreen from '@/app/landing/components/splash/splash';
+import { useAppSelector } from '@/redux/store';
 
 
 export default function Primary() {
   const {state, dispatch} = useContext(AppContext)
-  
+  const dashboard = useAppSelector((value) => value.splashReducer.value.dashboard)
   const closeDrawerRight = () => {
     dispatch({type:'CLOSE_DRAWER_RIGHT'})
   };
@@ -83,6 +85,7 @@ export default function Primary() {
       </Drawer>
       
     </Fragment>
+    {dashboard && <SplashScreen />}
     </>
   );
 }

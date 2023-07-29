@@ -12,13 +12,14 @@ type AuthState = {
     confirmPassword: string
 }
 
+
 const initialState = {
     value: {
         isAuth: false,
         email: "",
         password: "",
         confirmPassword: ""
-    } as AuthState
+    } as AuthState,
 } as InitialState
 
 export const auth = createSlice({
