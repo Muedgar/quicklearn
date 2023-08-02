@@ -1,17 +1,19 @@
 'use client'
-import React from "react";
-import Stats from "./stats";
+import React, { useContext } from "react";
 import Search from "./search";
-import Table from "./table";
+import BalanceSheet from "./balancesheet";
+import { AppContext } from "@/context/app.context";
+import ProfitAndLoss from "./profitandloss";
 
 const Menu = () => {
-  const [openTab, setOpenTab] = React.useState(1);
-  const [filter, setFilter] = React.useState("menu");
+  const {state} = useContext(AppContext)
   return (
     <>
       <div className="flex flex-wrap h-fit">
         <Search />
-        <Table />
+        {state.balanceSheet?
+        <BalanceSheet />:
+        <ProfitAndLoss />}
       </div>
     </>
   );

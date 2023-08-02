@@ -8,6 +8,7 @@ type StateType = {
   drawerTop: boolean;
   showModal: boolean;
   stepKey: number;
+  balanceSheet: boolean
 };
 
 type ActionType = {
@@ -20,7 +21,8 @@ const initialState: StateType = {
   drawerRight: false,
   drawerTop: false,
   showModal: false,
-  stepKey: 0
+  stepKey: 0,
+  balanceSheet: true
 };
 
 const reducer = (state: StateType, action: ActionType) => {
@@ -47,6 +49,10 @@ const reducer = (state: StateType, action: ActionType) => {
       return { ...state, stepKey: state.stepKey - 1};
     case "RESET_STEP_KEY":
       return { ...state, stepKey: 0 };
+    case "SET_REPORT_BALANCE_SHEET":
+      return { ...state, balanceSheet: true };
+    case "RESET_REPORT_BALANCE_SHEET":
+      return { ...state, balanceSheet: false }
     default:
       return state;
   }
