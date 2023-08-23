@@ -5,7 +5,7 @@ import Table from './table'
 
 
 
-function Customerinfo() {
+function CreateFormReceipt() {
   
   return (
     <div className='w-[100%] flex-col justify-between'>
@@ -29,4 +29,4 @@ function Customerinfo() {
   )
 }
 
-export default Customerinfo
+export default CreateFormReceipt
