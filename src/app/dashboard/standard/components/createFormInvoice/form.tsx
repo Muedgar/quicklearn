@@ -10,7 +10,7 @@ import { Step } from '@material-tailwind/react'
 
 
 function CreateFormInvoice() {
-  const {state} = useContext(AppContext)
+  const {dispatch} = useContext(AppContext)
 
   const [customerName, setCustomerName] = useState("")
   const [customerEmail, setCustomerEmail] = useState("")
@@ -26,7 +26,62 @@ function CreateFormInvoice() {
 
   const [products, setProducts] = useState("")
   const [amount, setAmount] = useState("")
-  
+  const handleCreateInvoice = async (e:any) => {
+    if(!customerName || !customerEmail || !billingAddress || !terms || !invoiceNo || !messageOnInvoice || !products || !amount || !dueDate || !invoiceDate) {
+      alert("One or more fields are empty")
+      return
+    }
+
+    if(new Date(invoiceDate)>new Date(dueDate)) {
+      alert("invoice date can't be greater then due date")
+      return
+    }
+    let data = {
+      customer_name: customerName,
+      customer_email: customerEmail,
+      billing_address: billingAddress,
+      terms,
+      invoice_no: invoiceNo,
+      message_on_invoice:messageOnInvoice,
+      products: products.split(';'),
+      invoice_date:invoiceDate,
+      due_date: dueDate,
+      amount: Number(amount)
+    }
+    await fetch("http://localhost:3001/standard/invoice",{
+    method: "POST",
+    mode: "cors", 
+    cache: "no-cache", 
+    credentials: "include", 
+    headers: {
+      "Content-Type": "application/json",
+     
+    },
+    body: JSON.stringify(data), 
+  }).then(d => d.json())
+  .then(d => {
+    if(d.statusCode === 403) {
+      throw new Error(`${d.message}`)
+    }
+    alert("Successfully created invoice")
+  }).catch(e => {
+    alert("Something went wrong:  "+e.message)
+    return
+  })
+    //  dispatch create
+
+    setCustomerName("")
+    setCustomerEmail("")
+    setBillingAddress("") 
+    setTerms("")
+    setInvoiceNo("") 
+    setMessageOnInvoice("")
+    setProducts("")
+    setAmount("") 
+    setDueDate("") 
+    setInvoiceDate("")
+    dispatch({type:'CLOSE_DRAWER_TOP'})
+  }
   return (
     <div className='w-[100%] flex-col justify-between'>
       {/* customer email and password */}
@@ -127,7 +182,5 @@ function CreateFormInvoice() {
 
 }
 
-const handleCreateInvoice = (e:any) => {
 
-  }
 export default CreateFormInvoice
