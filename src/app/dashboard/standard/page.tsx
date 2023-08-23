@@ -1,6 +1,6 @@
 'use client'
 import React, {useState,Fragment, useContext} from 'react'
-import Main from "./components/main/main";
+import MainInvoice from "./components/mainInvoice/main";
 import Nav from "./components/navigation/nav";
 
 import {
@@ -15,11 +15,14 @@ import Starttour from './components/starttour/starttour';
 import Customerinfo from './components/customerinfo/customerinfo';
 import { useAppSelector } from '@/redux/store';
 import SplashScreen from '@/app/landing/components/splash/splash';
+import MainPayment from './components/mainPayment/main';
+import MainReceipts from './components/mainReceipts/main';
+import MainExpense from './components/mainExpense/main';
 
 export default function Company() {
   const {state, dispatch} = useContext(AppContext)
   const standard = useAppSelector((state) => state.splashReducer.value.standard)
-  
+  const currentStandardNav = useAppSelector((state) => state.standardNav.value.currentNavItem)
   const closeDrawerRight = () => {
     dispatch({type:'CLOSE_DRAWER_RIGHT'})
   };
@@ -31,7 +34,10 @@ export default function Company() {
   return (
     <>
      <Nav />
-     <Main />
+     {currentStandardNav==="Invoicing" && <MainInvoice />}
+     {currentStandardNav==="Payments" && <MainPayment />}
+     {currentStandardNav==="Expenses" && <MainReceipts />}
+     {currentStandardNav==="Receipts" && <MainExpense />}
      {/* this should dispatch an action */}
     <Fragment>
       <div className={

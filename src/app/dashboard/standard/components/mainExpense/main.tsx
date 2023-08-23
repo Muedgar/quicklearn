@@ -5,7 +5,7 @@ import Menu from './menu'
 import { AppContext } from '@/context/app.context'
 
 
-function Main() {
+function MainExpense() {
   const {state} = useContext(AppContext)
   return (
     <div className={
@@ -20,4 +20,4 @@ function Main() {
   )
 }
 
-export default Main
+export default MainExpense
