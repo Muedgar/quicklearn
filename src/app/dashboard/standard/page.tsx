@@ -87,7 +87,7 @@ export default function Company() {
       >
         <div className="mb-6 flex items-center justify-between">
           <Typography variant="h5" color="blue-gray">
-            Drawer on Right
+            More Information.
           </Typography>
           <IconButton
             variant="text"
