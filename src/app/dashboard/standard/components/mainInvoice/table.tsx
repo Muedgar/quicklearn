@@ -164,8 +164,8 @@ async function resetInvoice() {
             </li>
             { 
             numbers.map((n:number,i:any) => (
-              <li className='cursor-pointer'>
-                <a onClick={() => changeCPage(n)} key={i} className={
+              <li key={i} className='cursor-pointer'>
+                <a onClick={() => changeCPage(n)} className={
                 currentPage===n?
                     "flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"    
             :

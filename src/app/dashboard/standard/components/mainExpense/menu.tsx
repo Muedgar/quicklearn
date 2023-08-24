@@ -32,36 +32,17 @@ const Menu = () => {
                 href="#link1"
                 role="tablist"
               >
-                All Sales
+                All Expenses
               </a>
             </li>
-            <li className="ml-5 text-center">
-              <a
-                className={
-                  "pl-10 pr-10 text-md font-extrabold " +
-                  (openTab === 2
-                    ? "border-b-4 text-[#393a3d] border-quick-nav-border"
-                    : "text-[#6b6c72] hover:text-[#393a3d] bg-white")
-                }
-                onClick={e => {
-                  e.preventDefault();
-                  setOpenTab(2);
-                  setFilter("bookmarks")
-                }}
-                data-toggle="tab"
-                href="#link2"
-                role="tablist"
-              >
-                Customers
-              </a>
-            </li>
+           
           </ul>
           <div className="relative flex flex-col min-w-0 break-words bg-white w-full mt-1 p-1">
             
             <div className="flex-auto overflow-auto h-full">
               <div className="tab-content tab-space">
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                  <Stats />
+                  {/* <Stats /> */}
                   <Search />
                   <Table />
                 </div>

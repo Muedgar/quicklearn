@@ -39,8 +39,8 @@ export default function Company() {
      <Nav />
      {currentStandardNav==="Invoicing" && <MainInvoice />}
      {currentStandardNav==="Payments" && <MainPayment />}
-     {currentStandardNav==="Expenses" && <MainReceipts />}
-     {currentStandardNav==="Receipts" && <MainExpense />}
+     {currentStandardNav==="Expenses" && <MainExpense />}
+     {currentStandardNav==="Receipts" && <MainReceipts />}
      {/* this should dispatch an action */}
     <Fragment>
       <div className={
