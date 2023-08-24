@@ -1,11 +1,6 @@
 'use client'
 import React, { useContext, useState } from 'react'
-import Fielditem from './fielditem'
-import Table from './table'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
 import { AppContext } from '@/context/app.context'
-import { Step } from '@material-tailwind/react'
 
 
 
