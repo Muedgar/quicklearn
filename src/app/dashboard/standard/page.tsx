@@ -46,7 +46,7 @@ export default function Company() {
       <div className={
         state.drawerTop ?
         'w-screen h-screen absolute top-0 left-0 z-50 bg-white transition-all duration-200 ease-out translate-y-[0%]' :
-        'w-screen h-screen absolute top-0 left-0 z-50 bg-white transition-all duration-200 ease-in translate-y-[-100%]'
+        'w-screen h-screen absolute top-0 left-0 z-50 bg-white transition-all duration-200 ease-in translate-y-[-200%]'
       }>
         <div className='relative w-[100%] pb-2 shadow-md flex justify-between'>
           <h1 className='text-quick-nav-shortcut-ul-li text-3xl font-bold ml-6 mb-4 mt-3'>

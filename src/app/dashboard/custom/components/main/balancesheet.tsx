@@ -6,7 +6,7 @@ function BalanceSheet() {
   return (
     <div className='w-[75%] m-auto h-fit pb-5 border border-[#a9a9a9]'>
         <div className='w-[90%] m-auto flex-col justify-center items-center border-b-2 border-black'>
-          <p className='text-quick-nav-shortcut-header text-center mt-[50px] text-2xl'>Oleander</p>
+          <p className='text-quick-nav-shortcut-header text-center mt-[50px] text-2xl'>Report</p>
           <p className='text-black text-center mt-[5px] font-bold'>Balance Sheet</p>
           <p className='text-quick-nav-shortcut-header text-center'>As of July 30, 2023</p>
         </div>

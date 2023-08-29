@@ -12,7 +12,7 @@ function Starttour() {
     const {state, dispatch} = useContext(AppContext)
 
     const handleTour = () => {
-      dispatch({type:'NEXT_STEP_KEY'})
+      dispatch({type:'SET_START_TOUR_TRUE_INVOICE'})
       dispatch({type:'CLOSE_MODAL'})
     }
   return (

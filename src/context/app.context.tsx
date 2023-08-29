@@ -8,7 +8,8 @@ type StateType = {
   drawerTop: boolean;
   showModal: boolean;
   stepKey: number;
-  balanceSheet: boolean
+  balanceSheet: boolean;
+  startTourInvoice: boolean;
 };
 
 type ActionType = {
@@ -22,7 +23,8 @@ const initialState: StateType = {
   drawerTop: false,
   showModal: false,
   stepKey: 0,
-  balanceSheet: true
+  balanceSheet: true,
+  startTourInvoice: false
 };
 
 const reducer = (state: StateType, action: ActionType) => {
@@ -53,6 +55,10 @@ const reducer = (state: StateType, action: ActionType) => {
       return { ...state, balanceSheet: true };
     case "RESET_REPORT_BALANCE_SHEET":
       return { ...state, balanceSheet: false }
+    case "SET_START_TOUR_TRUE_INVOICE":
+      return { ...state, startTourInvoice: true }
+    case "RESET_START_TOUR_TRUE_INVOICE":
+      return { ...state, startTourInvoice: false }
     default:
       return state;
   }
